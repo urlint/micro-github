@@ -21,7 +21,14 @@ const redirectWithQueryString = (res, data) => {
 const login = async (req, res) => {
   const state = await uid(20)
   states.push(state)
-  const url = `https://${githubUrl}/login/oauth/authorize?client_id=${githubId}&state=${state}`
+
+  const params = querystring.stringify({
+    state,
+    client_id: githubId,
+    scope: 'user:email,user:email,repo_deployment,repo:status,write:repo_hook'
+  })
+
+  const url = `https://${githubUrl}/login/oauth/authorize?${params}`
   redirect(res, 302, url)
 }
 
