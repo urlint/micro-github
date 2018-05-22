@@ -1,26 +1,23 @@
 {
   "name": "micro-github",
-  "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/mxstbr/micro-github.git#readme",
+  "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "micro",
-    "dev": "nodemon --exec \"npm start\" -e \"js\"",
-    "test": "standard"
+  "author": {
+    "email": "contact@mxstbr.com",
+    "name": "Max Stoiber",
+    "url": "http://mxstbr.com/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mxstbr/micro-github.git"
   },
-  "author": "Max Stoiber <contact@mxstbr.com> (http://mxstbr.com/)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mxstbr/micro-github/issues"
   },
-  "homepage": "https://github.com/mxstbr/micro-github.git#readme",
   "dependencies": {
     "axios": "^0.15.3",
-    "dotenv": "^4.0.0",
     "micro": "^6.2.1",
     "micro-redirect": "^1.0.0",
     "microrouter": "^2.0.1",
@@ -29,5 +26,12 @@
   "devDependencies": {
     "nodemon": "^1.11.0",
     "standard": "^8.6.0"
-  }
+  },
+  "scripts": {
+    "deploy": "now -e NODE_ENV=production --public --dotenv && now alias && now rm urlint --safe --yes",
+    "dev": "nodemon --exec \"npm start\" -e \"js\"",
+    "start": "micro",
+    "test": "standard"
+  },
+  "license": "MIT"
 }
