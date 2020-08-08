@@ -1,3 +1,26 @@
 {
-  "name": "urlint"
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "routes": [
+    {
+      "src": "/robots.txt",
+      "status": 204
+    },
+    {
+      "src": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ]
 }
